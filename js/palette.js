@@ -99,7 +99,7 @@ Palette.kmeansFirst = function() {
 		var maxc = -1;
 		for (var i in bins_copy) {
 			var d2 = this.distance2(this.bins[i].Lab, centers_lab[p]);
-			var factor = 1 - Math.exp(-d2 / 6400); // sigma_a:80
+			var factor = 1 - Math.exp(-d2*d2 / 6400); // sigma_a:80
 			bins_copy[i] *= factor;
 			if (bins_copy[i] > maxc) {
 				maxc = bins_copy[i];
